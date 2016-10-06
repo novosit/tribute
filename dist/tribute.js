@@ -744,7 +744,10 @@ if (!Array.prototype.find) {
           if (!this.isContentEditable(context.element)) {
             var textComponent = this.getDocument().activeElement;
             var startPos = textComponent.selectionStart;
-            text = textComponent.value.substring(0, startPos);
+            if (textComponent.value)
+            {
+              text = textComponent.value.substring(0, startPos)
+            }
           } else {
             var selectedElem = this.getWindowSelection().anchorNode;
 
