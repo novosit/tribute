@@ -658,9 +658,12 @@ if (!Array.prototype.find) {
 
       if (!this.isContentEditable(context.element)) {
         let textComponent = this.getDocument().activeElement
+	if (!textComponent) return '';
         let startPos = textComponent.selectionStart
-        text = textComponent.value.substring(0, startPos)
-
+        if (textComponent.value)
+        {
+          text = textComponent.value.substring(0, startPos)
+        }
       } else {
         let selectedElem = this.getWindowSelection().anchorNode
 
